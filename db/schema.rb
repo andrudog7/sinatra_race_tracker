@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20201207145844) do
 
   create_table "races", force: :cascade do |t|
     t.text    "name"
-    t.text    "type"
+    t.text    "distance"
     t.text    "location"
     t.string  "finish_time"
     t.string  "pace"

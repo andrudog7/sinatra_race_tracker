@@ -19,7 +19,14 @@
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>RaceTracker</strong></small>
+        <%if logged_in?%>
+        <form action = '/logout' method = "GET">
+        <input type = "submit" value = "Logout"></form>
+        <%else%>
+        <form action ='/login' method = "GET">
+        <input type = "submit" value = "Login"></form><br>
+        <%end%>
+        <br><small>&copy; 2020 <strong>RaceTracker</strong></small>
       </footer>
     </div>
 

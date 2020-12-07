@@ -1,10 +1,10 @@
-<h1>Congratulations on finishing your race!</h1>
+<h1>Congratulations on finishing your race, <%=@user.name%>!</h1>
 <h2>Enter your statistics below:</h2>
 
-<p><form action ="/races/new" method="POST">
+<p><form action ="/races" method="POST">
     Name of Race: <input type = "text" name="name"><br>
-    <label for="type">Distance:</label>
-    <select name="type">
+    <label for="distance">Distance:</label>
+    <select name="distance" id="distance">
         <option value="Marathon">Marathon</option>
         <option value="Half-Marathon">Half-Marathon</option>
         <option value="10K">10K</option>
