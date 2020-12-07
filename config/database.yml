@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: race_tracker
+test:
+  username: Andrew
+  password: 
+  pool: 5
+  timeout: 5000
+  host: localhost
+  port: 5432
