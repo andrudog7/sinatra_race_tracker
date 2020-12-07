@@ -5,14 +5,13 @@
     Name of Race: <input type = "text" name="name"><br>
     <label for="distance">Distance:</label>
     <select name="distance" id="distance">
-        <option value="Marathon">Marathon</option>
-        <option value="Half-Marathon">Half-Marathon</option>
-        <option value="10k">10k</option>
-        <option value="5k">5k</option>
+        <%Race.all.select(:distance).uniq.each do |race|%>
+        <option value="<%=race.distance%>"><%=race.distance%></option>
+        <%end%>
     </select><br>
     Location: <input type = "text" name="location"><br>
     Finish time: <input type-"text" name ="finish_time"><br>
-    Pace: <input type-"text" name ="pace"><br>
+    Pace (per mile): <input type-"text" name ="pace"><br>
     <input type="submit" value="Create New Race">
 </form>
 </p>

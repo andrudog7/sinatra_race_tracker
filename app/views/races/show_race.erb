@@ -7,6 +7,7 @@
     <th>Distance</th>
     <th>Finish Time</th>
     <th>Pace</th>
+    <th>Edit</th>
   </tr>
   <tr>
     <td><%=@race.name%></td>
@@ -14,6 +15,7 @@
     <td><%=@race.distance%></td>
     <td><%=@race.finish_time%></td>
     <td><%=@race.pace%></td>
+    <td><a href="/races/<%=@race.id%>/edit">Edit</a></td>
   </tr>
 </table>
 

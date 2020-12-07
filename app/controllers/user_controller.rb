@@ -38,7 +38,7 @@ class UserController < ApplicationController
         end
   end
 
-  get '/users/:distance' do 
+  get '/users/races/:distance' do 
     if logged_in?
         current_user
         erb :"/users/distance_layouts/#{params[:distance]}"

@@ -6,6 +6,7 @@
     <th>Distance</th>
     <th>Finish Time</th>
     <th>Pace</th>
+    <th>Edit</th>
   </tr>
     <%current_user.races.all.each do |race|%>
     <tr>
@@ -15,7 +16,9 @@
     <td><%=race.distance%></td>
     <td><%=race.finish_time%></td>
     <td><%=race.pace%></td>
+    <td><a href="/races/<%=race.id%>/edit">Edit</a></td>
     </tr>
     <%end%>
     <%end%>
 </table>
+<a href="/users/<%=current_user.slug%>">Back to Profile Page</a>

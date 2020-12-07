@@ -46,4 +46,48 @@ class RaceController < ApplicationController
         end
     end
 
+    get '/races/:id/edit' do 
+        if logged_in?
+            @race = Race.find_by_id(params[:id])
+            if @race && @race.user == current_user
+                erb :'/races/edit_race'
+            else
+                redirect to '/users/homepage'
+            end
+        else
+            redirect to '/login'
+        end
+    end
+
+    patch '/races/:id' do 
+        if logged_in?
+            if params[:name] == ""
+                redirect to "/races/#{params[:id]}/edit"
+            else
+                @race = Race.find_by_id(params[:id])
+                if @race && @race.user == current_user
+                    if @race.update(name: params[:name], location: params[:location], distance: params[:distance], finish_time: params[:finish_time], pace: params[:pace])
+                        redirect to "/races/#{@race.id}"
+                    else
+                        redirect to "/races/#{params[:id]}/edit"
+                    end
+                else
+                    redirect to '/races'
+                end
+            end
+        else
+            redirect to '/login'
+        end
+    end
+
+    delete '/race/:id/delete' do 
+        race = Race.find_by_id(params[:id])
+        if logged_in? && race.user == current_user
+            race.delete
+            redirect to "/users/#{race.user.id}"
+        else
+            redirect to '/login'
+        end
+    end
+
 end

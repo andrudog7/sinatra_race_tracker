@@ -1,0 +1,23 @@
+<h1>Edit your race below:</h1>
+<form action ="/races/<%=@race.id%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    Name of Race: <input type = "text" name="name" value="<%=@race.name%>"><br>
+    <label for="distance">Distance:</label>
+    <select name="distance" id="distance">
+        <%Race.all.select(:distance).uniq.each do |race|%>
+            <%if @race.distance == race.distance%>
+                <option value="<%=race.distance%>" selected><%=@race.distance%></option>
+            <%else%>
+                <option value="<%=race.distance%>"><%=race.distance%></option>
+            <%end%>
+        <%end%>
+    </select><br>
+    Location: <input type = "text" name="location" value="<%=@race.location%>"><br>
+    Finish time: <input type-"text" name ="finish_time" value="<%=@race.finish_time%>"><br>
+    Pace (per mile): <input type-"text" name ="pace" value="<%=@race.pace%>"><br>
+    <input type="submit" value="Update Race">
+    <form action ="/race/<%=@race.id%>/delete" method="delete">
+        <input type="hidden" name="_method" value="DELETE">
+        <button onclick="<%flash[:delete] = "Are you sure you want to delete this race?"%><%=flash[:delete]%>">Delete</button>
+    </form>
+</form>
