@@ -1,0 +1,9 @@
+<h1>Welcome to your Race Tracker Account, <%=@user.name%>!</h1>
+
+<h2>View a race category below or create a new race:</h2>
+<ul>
+    <%@user.races.all.each do |race|%>
+    <li><%=race.type%><br>
+    <%end%>
+</ul>
+<a href='/new'>Create a new race!</a>

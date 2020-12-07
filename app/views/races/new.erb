@@ -1,0 +1,18 @@
+<h1>Congratulations on finishing your race!</h1>
+<h2>Enter your statistics below:</h2>
+
+<p><form action ="/races/new" method="POST">
+    Name of Race: <input type = "text" name="name"><br>
+    <label for="type">Distance:</label>
+    <select name="type">
+        <option value="Marathon">Marathon</option>
+        <option value="Half-Marathon">Half-Marathon</option>
+        <option value="10K">10K</option>
+        <option value="5K">5K</option>
+    </select><br>
+    Location: <input type = "text" name="location"><br>
+    Finish time: <input type-"text" name ="finish_time"><br>
+    Pace: <input type-"text" name ="pace"><br>
+    <input type="submit" value="Create New Race">
+</form>
+</p>
