@@ -27,8 +27,9 @@ class RaceController < ApplicationController
                 if @race.save
                     current_user.races << @race 
                     current_user.save
-                    redirect to '/race/#{@race.id}'
-                else redirect to '/race/new'
+                    redirect to "/races/#{@race.id}"
+                else 
+                    redirect to '/race/new'
                 end
             end
         else

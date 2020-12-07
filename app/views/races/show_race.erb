@@ -1,0 +1,20 @@
+<h1><%=current_user.name%>'s Race Statistics:</h1>
+
+<table style="width:100%" border ="2px solid black;">
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Distance</th>
+    <th>Finish Time</th>
+    <th>Pace</th>
+  </tr>
+  <tr>
+    <td><%=@race.name%></td>
+    <td><%=@race.location%></td>
+    <td><%=@race.distance%></td>
+    <td><%=@race.finish_time%></td>
+    <td><%=@race.pace%></td>
+  </tr>
+</table>
+
+<a href='/users/<%=current_user.slug%>'>Profile Page</a>

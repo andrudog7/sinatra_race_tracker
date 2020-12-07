@@ -1,0 +1,21 @@
+<h1><%=current_user.name%>'s 5ks:</h1>
+<table style="width:100%" border ="1px">
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Distance</th>
+    <th>Finish Time</th>
+    <th>Pace</th>
+  </tr>
+    <%current_user.races.all.each do |race|%>
+    <tr>
+    <%if race.distance == "5k"%>
+    <td><%=race.name%></td>
+    <td><%=race.location%></td>
+    <td><%=race.distance%></td>
+    <td><%=race.finish_time%></td>
+    <td><%=race.pace%></td>
+    </tr>
+    <%end%>
+    <%end%>
+</table>

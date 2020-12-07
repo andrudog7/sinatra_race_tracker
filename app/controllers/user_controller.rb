@@ -30,8 +30,7 @@ class UserController < ApplicationController
 
   post '/login' do 
         @user = User.find_by(username: params[:username])
-        binding.pry
-        if user && user.authenticate(params[:password])
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
             redirect to '/users/:slug'
         else
@@ -39,7 +38,16 @@ class UserController < ApplicationController
         end
   end
 
-  get '/users/:slug' do 
+  get '/users/:distance' do 
+    if logged_in?
+        current_user
+        erb :"/users/distance_layouts/#{params[:distance]}"
+    else
+        redirect to '/login'
+    end
+  end
+
+  get "/users/:slug" do 
     @user = User.find_by_slug(params[:slug])
     erb :'users/homepage'
   end
