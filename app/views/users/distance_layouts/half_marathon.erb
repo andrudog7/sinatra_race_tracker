@@ -11,7 +11,7 @@
     <%current_user.races.all.each do |race|%>
     <tr>
     <%if race.distance == "Half-Marathon"%>
-    <td><%=race.name%></td>
+    <td><a href="/races/<%=race.slug%>"><%=race.name%></td>
     <td><%=race.location%></td>
     <td><%=race.distance%></td>
     <td><%=race.finish_time%></td>

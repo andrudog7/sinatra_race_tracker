@@ -1,5 +1,5 @@
 <h1>Edit your race below:</h1>
-<form action ="/races/<%=@race.id%>" method="POST">
+<form action ="/races/<%=@race.slug%>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
     Name of Race: <input type = "text" name="name" value="<%=@race.name%>"><br>
     <label for="distance">Distance:</label>

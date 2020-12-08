@@ -13,8 +13,9 @@ class UserController < ApplicationController
       redirect to 'signup'
     else
       @user = User.new(params)
-      session[:user_id] = @user.id
       @user.save
+      session[:user_id] = @user.id
+      binding.pry
       erb :'/users/homepage'
     end
   end
@@ -32,18 +33,10 @@ class UserController < ApplicationController
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
-            redirect to '/users/:slug'
+            redirect to "/users/#{@user.slug}"
         else
             redirect to '/signup'
         end
-  end
-
-  get '/users/races/:distance' do 
-    if logged_in?
-        erb :"/users/distance_layouts/#{params[:distance]}"
-    else
-        redirect to '/login'
-    end
   end
 
   get "/users/:slug" do 
@@ -54,7 +47,7 @@ class UserController < ApplicationController
   get '/logout' do 
     if logged_in?
         session.destroy
-        redirect to '/'
+        redirect to '/login'
     else
         redirect to '/'
     end

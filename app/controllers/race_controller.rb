@@ -13,7 +13,6 @@ class RaceController < ApplicationController
         if !logged_in?
             redirect to '/login'
         else
-            @user = current_user
             erb :'races/new'
         end
     end
@@ -27,7 +26,7 @@ class RaceController < ApplicationController
                 if @race.save
                     current_user.races << @race 
                     current_user.save
-                    redirect to "/races/#{@race.slug}"
+                    redirect to "/races/#{@race.slug}/show"
                 else 
                     redirect to '/race/new'
                 end
@@ -37,7 +36,15 @@ class RaceController < ApplicationController
         end
     end
 
-    get '/races/:slug' do 
+    get '/races/:distance' do 
+        if logged_in?
+            erb :"/users/distance_layouts/#{params[:distance]}"
+        else
+            redirect to '/login'
+        end
+      end
+
+    get '/races/:slug/show' do 
         if logged_in?
             @race = Race.find_by_slug(params[:slug])
             erb :'races/show_race'
@@ -59,20 +66,18 @@ class RaceController < ApplicationController
         end
     end
 
-    patch '/races/:id' do 
+    patch '/races/:slug' do 
         if logged_in?
             if params[:name] == ""
                 redirect to "/races/#{params[:id]}/edit"
             else
-                @race = Race.find_by_id(params[:id])
+                @race = Race.find_by_slug(params[:slug])
                 if @race && @race.user == current_user
                     if @race.update(name: params[:name], location: params[:location], distance: params[:distance], finish_time: params[:finish_time], pace: params[:pace])
-                        redirect to "/races/#{@race.id}"
+                        redirect to "/races/#{@race.slug}/show"
                     else
-                        redirect to "/races/#{params[:id]}/edit"
+                        redirect to "/races/#{params[:slug]}/edit"
                     end
-                else
-                    redirect to '/races'
                 end
             end
         else
@@ -84,7 +89,7 @@ class RaceController < ApplicationController
         race = Race.find_by_id(params[:id])
         if logged_in? && race.user == current_user
             race.delete
-            redirect to "/users/#{race.user.id}"
+            redirect to "/races/#{race.slug_distance}"
         else
             redirect to '/login'
         end
