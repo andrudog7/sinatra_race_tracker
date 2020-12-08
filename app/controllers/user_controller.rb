@@ -40,7 +40,6 @@ class UserController < ApplicationController
 
   get '/users/races/:distance' do 
     if logged_in?
-        current_user
         erb :"/users/distance_layouts/#{params[:distance]}"
     else
         redirect to '/login'

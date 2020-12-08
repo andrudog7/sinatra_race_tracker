@@ -16,8 +16,8 @@
     Finish time: <input type-"text" name ="finish_time" value="<%=@race.finish_time%>"><br>
     Pace (per mile): <input type-"text" name ="pace" value="<%=@race.pace%>"><br>
     <input type="submit" value="Update Race">
-    <form action ="/race/<%=@race.id%>/delete" method="delete">
-        <input type="hidden" name="_method" value="DELETE">
-        <button onclick="<%flash[:delete] = "Are you sure you want to delete this race?"%><%=flash[:delete]%>">Delete</button>
     </form>
-</form>
+    <form onsubmit="confirm('Are you sure you want to delete the following note?')" action ="/races/<%=@race.id%>/delete" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>

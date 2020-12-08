@@ -27,7 +27,7 @@ class RaceController < ApplicationController
                 if @race.save
                     current_user.races << @race 
                     current_user.save
-                    redirect to "/races/#{@race.id}"
+                    redirect to "/races/#{@race.slug}"
                 else 
                     redirect to '/race/new'
                 end
@@ -37,18 +37,18 @@ class RaceController < ApplicationController
         end
     end
 
-    get '/races/:id' do 
+    get '/races/:slug' do 
         if logged_in?
-            @race = Race.find_by_id(params[:id])
+            @race = Race.find_by_slug(params[:slug])
             erb :'races/show_race'
         else
             redirect to '/login'
         end
     end
 
-    get '/races/:id/edit' do 
+    get '/races/:slug/edit' do 
         if logged_in?
-            @race = Race.find_by_id(params[:id])
+            @race = Race.find_by_slug(params[:slug])
             if @race && @race.user == current_user
                 erb :'/races/edit_race'
             else
@@ -80,7 +80,7 @@ class RaceController < ApplicationController
         end
     end
 
-    delete '/race/:id/delete' do 
+    delete '/races/:id/delete' do 
         race = Race.find_by_id(params[:id])
         if logged_in? && race.user == current_user
             race.delete
