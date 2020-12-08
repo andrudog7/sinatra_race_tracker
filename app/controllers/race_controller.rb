@@ -73,7 +73,7 @@ class RaceController < ApplicationController
             else
                 @race = Race.find_by_slug(params[:slug])
                 if @race && @race.user == current_user
-                    if @race.update(name: params[:name], location: params[:location], distance: params[:distance], finish_time: params[:finish_time], pace: params[:pace])
+                    if @race.update(name: params[:name], location: params[:location], distance: params[:distance], finish_time: params[:finish_time], pace: params[:pace], date: params[:date])
                         redirect to "/races/#{@race.slug}/show"
                     else
                         redirect to "/races/#{params[:slug]}/edit"

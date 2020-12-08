@@ -2,6 +2,7 @@
 <table style="width:100%" border ="1px">
   <tr>
     <th>Name</th>
+    <th>Date</th>
     <th>Location</th>
     <th>Distance</th>
     <th>Finish Time</th>
@@ -11,7 +12,8 @@
     <%current_user.races.all.each do |race|%>
     <tr>
     <%if race.distance == "Half-Marathon"%>
-    <td><a href="/races/<%=race.slug%>"><%=race.name%></td>
+    <td><a href="/races/<%=race.slug%>/show"><%=race.name%></td>
+    <td><%=race.date%></td>
     <td><%=race.location%></td>
     <td><%=race.distance%></td>
     <td><%=race.finish_time%></td>

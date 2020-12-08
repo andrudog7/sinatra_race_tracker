@@ -10,9 +10,10 @@
         <option value="10k">10k</option>
         <option value="5k">5k</option>
     </select><br>
+    Date: <input type="date" name="date"><br>
     Location: <input type = "text" name="location"><br>
-    Finish time: <input type-"text" name ="finish_time"><br>
-    Pace (per mile): <input type-"text" name ="pace"><br>
+    Finish time (hh:mm:ss): <input type="text" pattern="\d{2}:[012345][0-9]:[012345][0-9]" name ="finish_time"><br>
+    Pace per mile (mm:ss): <input type="text" pattern="[012345][0-9]:[012345][0-9]" name ="pace"><br>
     <input type="submit" value="Create New Race">
 </form>
 </p>
