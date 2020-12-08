@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper"><img src="/images/racetracker.png" width="120" height="75" alt="Race Tracker Logo" style="float:left; padding:5px">
-    <div id="link_bar" >
+    <div class="wrapper">
+    <div><img src="/images/racetracker.png" width="120" height="75" alt="Race Tracker Logo" style="float:left; padding:5px"></div>
+    <div id="link_bar">
         <a href='/races/new'>Create a New Race!</a>
         <%if logged_in?%>
         <a href='/users/<%=current_user.slug%>'>Profile Page</a>
@@ -25,11 +26,12 @@
         <%end%>
       </div>
       <style>
-        #link_bar a { padding:12px; font-weight:bold; float:left; }
+        #link_bar {float: left}
+        #link_bar a { padding:10px; font-weight:bold;}
         #link_bar a:link { color:#000000; background-color: #8dcaff;}
         #link_bar a:visited { color:#000000; background-color: #8dcaff; }
         #link_bar a:hover { color:#ffffff; background-color:#1761a0; }
-        #link_bar a:active { color:#f0f0f0; background-color:#00ff00; }
+        #link_bar a:active { color:#f0f0f0; background-color:#ff9e0e; }
       </style>  <br><br><br><br><br>
 
         <%= yield %>

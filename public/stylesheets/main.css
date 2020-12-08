@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: black;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -79,13 +79,9 @@
   footer.branding {
     border-top: 2px solid #ccc;
     margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 0px;
   }
-  #link_bar a { padding:15px; font-weight:bold; float:left; }
-    #link_bar a:link { color:#d0d0d0; background-color:#31afe0; }
-    #link_bar a:visited { color:#c0c0c0; background-color:#0000a0; }
-    #link_bar a:hover { color:#ffffff; background-color:#000060; }
-    #link_bar a:active { color:#f0f0f0; background-color:#00ff00; }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -119,6 +115,7 @@
   }
 }
 
+/* --- Race Table Display Styles --- */
 .distance-table {
   border-collapse: collapse;
   margin: 25px 0;
@@ -148,4 +145,35 @@
 
 .distance-table tbody tr:last-of-type {
   border-bottom: 5px solid #ffc562;
+}
+
+/* --- Welcome Page Styles --- */
+.welcome-header {
+  text-align: center;
+}
+
+.links a{
+    text-decoration: none;
+  }
+  
+.links {
+  text-align: center;
+  font-size: 150%;
+}
+
+.links a:link, .links a:visited {
+  background-color: #ff9e0e;
+  color: black;
+  padding: 13px 23px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.links a:hover, .links a:active {
+  background-color: red;
+}
+
+.image {
+  text-align: center;
 }
