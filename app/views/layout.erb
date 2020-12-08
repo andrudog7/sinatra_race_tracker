@@ -14,24 +14,30 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper"><img src="/images/racetracker.png" width="120" height="75" alt="Race Tracker Logo" style="float:left; padding:5px">
+    <div id="link_bar" >
+        <a href='/races/new'>Create a New Race!</a>
+        <%if logged_in?%>
+        <a href='/users/<%=current_user.slug%>'>Profile Page</a>
+        <a href="/logout">Logout</a>
+        <%else%>
+        <a href="/login">Login</a>
+        <%end%>
+      </div>
+      <style>
+        #link_bar a { padding:12px; font-weight:bold; float:left; }
+        #link_bar a:link { color:#000000; background-color: #8dcaff;}
+        #link_bar a:visited { color:#000000; background-color: #8dcaff; }
+        #link_bar a:hover { color:#ffffff; background-color:#1761a0; }
+        #link_bar a:active { color:#f0f0f0; background-color:#00ff00; }
+      </style>  <br><br><br><br><br>
 
         <%= yield %>
 
       <footer class="branding">
-        <%if logged_in?%>
-        <form onsubmit="confirm('Are you sure you want to logout?')" action ="/logout" method="GET">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Logout">
-        </form>
-        <%else%>
-        <form action ='/login' method = "GET">
-        <input type = "submit" value = "Login"></form><br>
-        <%end%>
         <br><small>&copy; 2020 <strong>RaceTracker</strong></small>
       </footer>
     </div>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>

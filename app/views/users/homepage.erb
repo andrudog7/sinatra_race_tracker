@@ -1,10 +1,10 @@
-<h1>Welcome to your Race Tracker, <%=current_user.name%>!</h1>
+<h1>Welcome to Race Tracker, <%=current_user.name%>!</h1>
 
 <h2>View a race category below or create a new race:</h2>
 <ul> 
     <%Race.all.select(:distance).uniq.each do |race|%>
-    <li><a href="/races/<%=race.slug_distance%>"><%=race.distance%>s</a></li>
+    <li><a href="/races/<%=race.slug_distance%>"><%=race.distance%>s</a> - <%=current_user.races.select{|r|r.distance == race.distance}.count%></li>
     <%end%>
-    <li><a href="/users/all_races">All Races</a></li>
+    <li><a href="/races/all_races">All Races</a> - <%=current_user.races.count%></li><br>
 </ul>
 <a href='/races/new'>Create a new race!</a>

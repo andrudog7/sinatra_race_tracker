@@ -1,0 +1,31 @@
+<h1><%=current_user.name%>'s Races:</h1>
+<h2>Total Races: <%=current_user.races.count%></h2>
+<table class="distance-table" style="width:100%" border ="1px">
+  <thead>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Distance</th>
+        <th>Finish Time</th>
+        <th>Pace</th>
+        <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <%count = 0%>
+        <%current_user.races.all.sort_by{|race|race.distance}.each do |race|%>
+            <td><%=count += 1%>.</td>
+            <td><a href="/races/<%=race.slug%>/show"><%=race.name%></td>
+            <td><%=race.date%></td>
+            <td><%=race.location%></td>
+            <td><%=race.distance%></td>
+            <td><%=race.finish_time%></td>
+            <td><%=race.pace%></td>
+            <td><a href="/races/<%=race.slug%>/edit">Edit</a></td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>

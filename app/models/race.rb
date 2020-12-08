@@ -3,7 +3,7 @@ class Race < ActiveRecord::Base
     validates :name, :presence => true 
 
     def slug_distance
-        self.distance.downcase.gsub("-", "_")
+        self.distance.gsub("-", "_")
     end
 
     def slug
