@@ -16,10 +16,10 @@
   <tbody>
     <tr>
         <%count = 0%>
-        <%current_user.races.all.sort_by{|race|race.distance}.each do |race|%>
+        <%current_user.races.all.sort_by{|race|race.finish_time}.each do |race|%>
             <td><%=count += 1%>.</td>
             <td><a href="/races/<%=race.slug%>/show"><%=race.name%></td>
-            <td><%=race.date%></td>
+            <td><%=race.format_date%></td>
             <td><%=race.location%></td>
             <td><%=race.distance%></td>
             <td><%=race.finish_time%></td>

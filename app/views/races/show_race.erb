@@ -1,22 +1,26 @@
 <h1><%=@race.name%> Statistics:</h1>
 
-<table style="width:100%" border ="2px solid black;">
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Location</th>
-    <th>Distance</th>
-    <th>Finish Time</th>
-    <th>Pace</th>
-    <th>Edit</th>
-  </tr>
-  <tr>
-    <td><%=@race.name%></td>
-    <td><%=@race.date%></td>
-    <td><%=@race.location%></td>
-    <td><%=@race.distance%></td>
-    <td><%=@race.finish_time%></td>
-    <td><%=@race.pace%></td>
-    <td><a href="/races/<%=@race.slug%>/edit">Edit</a></td>
-  </tr>
+<table class="distance-table" style="width:100%" border ="1px">
+  <thead>
+    <tr>
+        <th>Finisher Name</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Distance</th>
+        <th>Finish Time</th>
+        <th>Pace</th>
+        <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%=current_user.name%></td>
+      <td><%=@race.format_date%></td>
+      <td><%=@race.location%></td>
+      <td><%=@race.distance%></td>
+      <td><%=@race.finish_time%></td>
+      <td><%=@race.pace%></td>
+      <td><a href="/races/<%=@race.slug%>/edit">Edit</a></td>
+    </tr>
+    </tbody>
 </table>

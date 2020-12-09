@@ -33,6 +33,7 @@
   h1 {
     font-size: 36px;
     line-height: 54px;
+    font-variant: small-caps;
   }
 
   h2 {
@@ -150,6 +151,7 @@
 /* --- Welcome Page Styles --- */
 .welcome-header {
   text-align: center;
+  font-variant: small-caps;
 }
 
 .links a{

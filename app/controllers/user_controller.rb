@@ -10,12 +10,17 @@ class UserController < ApplicationController
 
   post '/signup' do 
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      redirect to 'signup'
+      redirect to '/signup'
+    elsif User.all.map{|user|user.email}.include?(params[:email])
+        flash[:email] = "Sorry, #{params[:email]} is already being used.  Please use a different email address."
+        redirect to '/signup'
+    elsif User.all.map{|user|user.username}.include?(params[:username])
+        flash[:username] = "Sorry, the username #{params[:username]} is already taken.  Please choose a different username."
+        redirect to '/signup'
     else
       @user = User.new(params)
       @user.save
       session[:user_id] = @user.id
-      binding.pry
       erb :'/users/homepage'
     end
   end
@@ -47,7 +52,7 @@ class UserController < ApplicationController
   get '/logout' do 
     if logged_in?
         session.destroy
-        redirect to '/login'
+        redirect to '/'
     else
         redirect to '/'
     end
