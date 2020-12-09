@@ -1,4 +1,4 @@
-<h1>Welcome to Race Tracker, <%=current_user.name%>!</h1>
+<h1>Welcome, <%=current_user.name%>!</h1>
 
 <h2>View a race category below or create a new race:</h2>
 <ul> 
@@ -7,4 +7,5 @@
     <%end%>
     <li><a href="/races/all_races">All Races</a> - <%=current_user.races.count%></li><br>
 </ul>
+
 <a href='/races/new'>Create a new race!</a>
