@@ -300,7 +300,7 @@
 
 /* --- New/Edit Page Styles --- */
 label {
-  width: 170px;
+  width: 140px;
   display: inline-block;
   padding: 3px;
 }
@@ -359,6 +359,6 @@ font-size: 100%;
 }
 
 .new-race-button {
-  font-size: 110%;
+  font-size: 90%;
 }
 

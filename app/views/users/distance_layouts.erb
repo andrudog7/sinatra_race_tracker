@@ -1,5 +1,5 @@
 <h1 style="font-variant: small-caps;"><%=current_user.name%>'s <%=@distance%>s:</h1>
-<p class="new-race-button"><a href="/races/new">Add a New Race</a></p>
+<p class="new-race-button"><a href="/races/new">Add a New <%=@distance%></a></p>
 <table class="distance-table" style="width:100%">
   <thead>
     <tr>
@@ -10,12 +10,12 @@
         <th>Distance</th>
         <th>Finish Time</th>
         <th>Pace</th>
-        <th>Edit</th>
+        <th>Edit/Delete</th>
     </tr>
   </thead>
     <tbody>
         <tr><%count = 0%>
-    <%current_user.races.all.select{|race|race.distance == @distance}.sort_by{|race|race.finish_time}.each do |race|%>
+    <%current_user.sort_by_finish_time(@distance).each do |race|%>
         
             <td><%=count += 1%>.</td>
             <td><a href="/races/<%=race.slug%>/<%=race.id%>/show"><%=race.name%></td>

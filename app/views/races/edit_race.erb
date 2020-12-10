@@ -17,10 +17,10 @@
         <input type="date" name="date" value="<%=@race.date%>"><br>
     <label for="location">Location:</label>
         <input type = "text" name="location" value="<%=@race.location%>"><br>
-    <label for="finish_time">Finish time (hh:mm:ss):</label>
-        <input type="text" pattern="\d{2}:[012345][0-9]:[012345][0-9]" name ="finish_time" value="<%=@race.finish_time%>"><br>
-    <label for="pace">Pace per mile(mm:ss):</label>
-        <input type="text" pattern="[012345][0-9]:[012345][0-9]" name ="pace" value="<%=@race.pace%>"><br><br>
+    <label for="finish_time">Finish Time:</label>
+        <input type="text" pattern="\d{2}:[012345][0-9]:[012345][0-9]" name ="finish_time" value="<%=@race.finish_time%>" placeholder="hh:mm:ss"><br>
+    <label for="pace">Pace per Mile:</label>
+        <input type="text" pattern="[012345][0-9]:[012345][0-9]" name ="pace" value="<%=@race.pace%>" placeholder="mm:ss"><br><br>
     <input class="new" type="submit" value="Update Race"><br><br>
     </form>
     <form action ="/races/<%=@race.id%>/delete" method="POST">

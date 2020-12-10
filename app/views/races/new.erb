@@ -20,29 +20,11 @@
         <input type="date" name="date"><br>
     <label for="location">Location:</label>
         <input type = "text" name="location"><br>
-    <label for="finish_time">Finish time (hh:mm:ss): </label>
-        <input type="text" pattern="\d{2}:[012345][0-9]:[012345][0-9]" name ="finish_time"><br>
-    <label for="pace">Pace per mile (mm:ss): </label>
-        <input type="text" pattern="[012345][0-9]:[012345][0-9]" name ="pace">
+    <label for="finish_time">Finish Time: </label>
+        <input type="text" pattern="\d{2}:[012345][0-9]:[012345][0-9]" name ="finish_time" placeholder="hh:mm:ss"><br>
+    <label for="pace">Pace per Mile: </label>
+        <input type="text" pattern="[012345][0-9]:[012345][0-9]" name ="pace" placeholder="mm:ss">
         <br><br>
     <input class="new" type="submit" value="Create New Race">
 </form> 
 </p>
-
-<%# <style>
-label {
-    width: 170px;
-    display: inline-block;
-    padding: 3px;
-}
-
-.new {
-  background-color: #ff9e0e;
-  color: black;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 100%;
-}
-</style> %>

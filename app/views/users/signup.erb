@@ -1,10 +1,10 @@
 <h2>Sign up below to join Race Tracker!</h2>
-<%if flash[:email]%>
+<div style="color:red"><%if flash[:email]%>
     <%=flash[:email]%>
 <%elsif flash[:username]%>
     <%=flash[:username]%>
 <%end%>
-
+</div>
 <p><form action="/signup" method="POST">
     <label for="name">Name:</label>
         <input type = "text" name = "name" maxlength="30"><br>
@@ -12,8 +12,9 @@
         <input type = "text" name = "username" maxlength="20"><br>
     <label for="email">Email:</label>
         <input type="email" name = "email" maxlength="30"><br>
-    <label for="password">Create Password (max 10 characters):</label>
-        <input type="password" name="password" maxlength="10"/><br><br>
+    <label for="password">Create Password:</label>
+        <input type="password" name="password" maxlength="10"/><br>
+        <i>(10 character max)</i><br><br>
     <input class="delete" type="submit" value = "Sign Up!">
 </form>
 </p>
