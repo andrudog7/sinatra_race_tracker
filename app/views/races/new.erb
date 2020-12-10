@@ -2,18 +2,47 @@
 <h2>Enter your statistics below:</h2>
 
 <p><form action ="/races" method="POST">
-    Name of Race: <input type = "text" name="name"><br>
+    <label for="name">Name of Race:</label>
+        <input type = "text" name="name"><br>
     <label for="distance">Distance:</label>
     <select name="distance" id="distance">
-        <option value="Marathon">Marathon</option>
-        <option value="Half-Marathon">Half-Marathon</option>
-        <option value="10k">10k</option>
         <option value="5k">5k</option>
+        <option value="10k">10k</option>
+        <option value="15k">15k</option>
+        <option value="20k">20k</option>
+        <option value="4 Mile">4 Mile</option>
+        <option value="5 Mile">5 Mile</option>
+        <option value="10 Mile">10 Mile</option>
+        <option value="Half-Marathon">Half-Marathon</option>
+        <option value="Marathon">Marathon</option>
     </select><br>
-    Date: <input type="date" name="date"><br>
-    Location: <input type = "text" name="location"><br>
-    Finish time (hh:mm:ss): <input type="text" pattern="\d{2}:[012345][0-9]:[012345][0-9]" name ="finish_time"><br>
-    Pace per mile (mm:ss): <input type="text" pattern="[012345][0-9]:[012345][0-9]" name ="pace"><br>
-    <input type="submit" value="Create New Race">
-</form>
+    <label for="date">Date:</label>
+        <input type="date" name="date"><br>
+    <label for="location">Location:</label>
+        <input type = "text" name="location"><br>
+    <label for="finish_time">Finish time (hh:mm:ss): </label>
+        <input type="text" pattern="\d{2}:[012345][0-9]:[012345][0-9]" name ="finish_time"><br>
+    <label for="pace">Pace per mile (mm:ss): </label>
+        <input type="text" pattern="[012345][0-9]:[012345][0-9]" name ="pace">
+        <br><br>
+    <input class="new" type="submit" value="Create New Race">
+</form> 
 </p>
+
+<style>
+label {
+    width: 170px;
+    display: inline-block;
+    padding: 3px;
+}
+
+.new {
+  background-color: #ff9e0e;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 100%;
+}
+</style>

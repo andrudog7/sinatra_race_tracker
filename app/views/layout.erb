@@ -15,25 +15,31 @@
   </head>
   <body>
     <div class="wrapper">
-    <div><img src="/images/racetracker.png" width="110" height="70" alt="Race Tracker Logo" style="float:left"></div>
-    <div id="link_bar">
-        <%if logged_in?%>
-        <a href='/races/new'>Create a New Race!</a>
-        <a href='/users/<%=current_user.slug%>'>Profile Page</a>
-        <a href="/logout">Logout</a>
-        <%else%>
-        <a href='/signup'>Signup</a>
-        <a href="/login">Login</a>
-        <%end%>
+    <div><img src="/images/racetracker.png" width="110" height="70" alt="Race Tracker Logo" style="float:left;"></div>
+      <%if logged_in?%>
+      <div class="profile-dropdown">
+          <button class="dropbtn">My Profile</button>
+          <div class="profile-dropdown-content">
+            <a href='/users/<%=current_user.slug%>'>My Dashboard</a>
+            
+            <a href="/logout">Logout</a>
+          </div>
       </div>
-      <style>
-        #link_bar {float: left}
-        #link_bar a { padding:10px; font-weight:bold;}
-        #link_bar a:link { color:#000000; background-color: #8dcaff;}
-        #link_bar a:visited { color:#000000; background-color: #8dcaff; }
-        #link_bar a:hover { color:#ffffff; background-color:#1761a0; }
-        #link_bar a:active { color:#f0f0f0; background-color:#ff9e0e; }
-      </style>  <br><br><br><br>
+      <div class="new-button">
+        <div class="profile-dropdown">
+          <button class="dropbtn">My Races </button>
+            <div class="profile-dropdown-content">
+            <a href="/races/new">Create New Race</a>
+            <a href="/races/all_races">All Races</a>
+            <%current_user.races.all.select(:distance).uniq.each do |race|%>
+            <a href="/races/<%=race.slug_distance%>"><%=race.distance%></a>
+            <%end%>
+            </div>
+        </div>
+      </div>
+      <%end%>
+      <input class="dropbtn" type="submit" onclick="window.print();return false;" value="Print">
+<br><br><br>
 
         <%= yield %>
 

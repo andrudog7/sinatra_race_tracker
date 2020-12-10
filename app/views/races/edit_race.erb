@@ -16,7 +16,7 @@
     Location: <input type = "text" name="location" value="<%=@race.location%>"><br>
     Finish time: <input type-"text" name ="finish_time" value="<%=@race.finish_time%>"><br>
     Pace (per mile): <input type-"text" name ="pace" value="<%=@race.pace%>"><br>
-    <input type="submit" value="Update Race">
+    <input class="new" type="submit" value="Update Race">
     </form>
     <form onsubmit="confirm('Are you sure you want to delete the following note?')" action ="/races/<%=@race.id%>/delete" method="POST">
         <input type="hidden" name="_method" value="DELETE">

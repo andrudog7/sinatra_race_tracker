@@ -1,8 +1,8 @@
 <h2>Sign up below to join Race Tracker!</h2>
 <%if flash[:email]%>
-<%=flash[:email]%>
+    <%=flash[:email]%>
 <%elsif flash[:username]%>
-<%=flash[:username]%>
+    <%=flash[:username]%>
 <%end%>
 
 <p><form action="/signup" method="POST">

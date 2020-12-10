@@ -64,9 +64,9 @@ class RaceController < ApplicationController
         end
     end
 
-    get '/races/:slug/edit' do 
+    get '/races/:slug/:id/edit' do 
         if logged_in?
-            @race = Race.find_by_slug(params[:slug])
+            @race = Race.find_by_id(params[:id])
             if @race && @race.user == current_user
                 erb :'/races/edit_race'
             else
