@@ -1,5 +1,5 @@
 <h1>Congratulations on finishing your race, <%=current_user.name%>!</h1>
-<h2>Enter your statistics below:</h2>
+<h2>Enter your race information below:</h2>
 
 <p><form action ="/races" method="POST">
     <label for="name">Name of Race:</label>
@@ -29,7 +29,7 @@
 </form> 
 </p>
 
-<style>
+<%# <style>
 label {
     width: 170px;
     display: inline-block;
@@ -45,4 +45,4 @@ label {
   display: inline-block;
   font-size: 100%;
 }
-</style>
+</style> %>

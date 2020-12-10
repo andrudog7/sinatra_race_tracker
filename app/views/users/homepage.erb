@@ -1,13 +1,13 @@
 <h1 style="font-variant: small-caps; text-align: center">Welcome, <%=current_user.name%>!</h1>
 
 <div id="home-stats">
-    <div><h2 style="text-align: center">My Racing Dashboard</h2></div>
+    <div><h2 style="text-align: center; font-variant: small-caps;">My Racing Dashboard</h2></div>
 </div>
 <div class="container">
     
     <div id="fivek">
         <%if current_user.races.select{|r|r.distance == "5k"} != []%>
-        <h3 style="text-align: center"><a href="/races/5k">5k</a></h3><br>
+        <p class="dashboard"><a href="/races/5k">5k</a></p><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Races:</li>
         <li style="text-align: center"><%=current_user.races.select{|r|r.distance == "5k"}.count%></li><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Miles:</li>
@@ -17,7 +17,7 @@
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Fastest Time:</li>
         <li style="text-align: center"><%=current_user.races.select{|r|r.distance == "5k"}.sort_by{|race|race.finish_time}.first.finish_time%></li>
         <%else%>
-        <h3 style="text-align: center"><a href="/races/5k">5k</a></h3><br>
+        <p class="dashboard"><a href="/races/5k">5k</a></p><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Races:</li>
         <li style="text-align: center">0</li><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Miles:</li>
@@ -30,7 +30,7 @@
     </div>
     <div id="tenk">
         <%if current_user.races.select{|r|r.distance == "10k"} != []%>
-        <h3 style="text-align: center"><a href="/races/10k">10k</a></h3><br>
+        <p class="dashboard"><a href="/races/10k">10k</a></p><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Races:</li>
         <li style="text-align: center"><%=current_user.races.select{|r|r.distance == "10k"}.count%></li><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Miles:</li>
@@ -40,7 +40,7 @@
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Fastest Time:</li>
         <li style="text-align: center"><%=current_user.races.select{|r|r.distance == "10k"}.sort_by{|race|race.finish_time}.first.finish_time%></li>
         <%else%>
-        <h3 style="text-align: center"><a href="/races/5k">10k</a></h3><br>
+        <p class="dashboard"><a href="/races/10k">10k</a></p><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Races:</li>
         <li style="text-align: center">0</li><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Miles:</li>
@@ -53,7 +53,7 @@
     </div>
     <div id="Half-Marathon">
          <%if current_user.races.select{|r|r.distance == "Half-Marathon"} != []%>
-        <h3 style="text-align: center"><a href="/races/Half_Marathon">Half-Marathon</a></h3><br>
+        <p class="dashboard"><a href="/races/Half-Marathon">Half-Marathon</a></p><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Races:</li>
         <li style="text-align: center"><%=current_user.races.select{|r|r.distance == "Half-Marathon"}.count%></li><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Miles:</li>
@@ -63,7 +63,7 @@
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Fastest Time:</li>
         <li style="text-align: center"><%=current_user.races.select{|r|r.distance == "Half-Marathon"}.sort_by{|race|race.finish_time}.first.finish_time%></li>
         <%else%>
-        <h3 style="text-align: center"><a href="/races/5k">Half-Marathon</a></h3><br>
+        <p class="dashboard"><a href="/races/Half-Marathon">Half-Marathon</a></p><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Races:</li>
         <li style="text-align: center">0</li><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Miles:</li>
@@ -76,7 +76,7 @@
     </div>
     <div id="Marathon">
         <%if current_user.races.select{|r|r.distance == "Marathon"} != []%>
-        <h3 style="text-align: center"><a href="/races/Marathon">Marathon</a></h3><br>
+        <p class="dashboard"><a href="/races/Marathon">Marathon</a></p><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Races:</li>
         <li style="text-align: center"><%=current_user.races.select{|r|r.distance == "Marathon"}.count%></li><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Miles:</li>
@@ -86,7 +86,7 @@
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Fastest Time:</li>
         <li style="text-align: center"><%=current_user.races.select{|r|r.distance == "Marathon"}.sort_by{|race|race.finish_time}.first.finish_time%></li>
         <%else%>
-        <h3 style="text-align: center"><a href="/races/5k">Marathon</a></h3><br>
+        <p class="dashboard"><a href="/races/Marathon">Marathon</a></p><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Races:</li>
         <li style="text-align: center">0</li><br>
         <li style="text-align: center; text-decoration: overline; font-weight: bold">Total Miles:</li>

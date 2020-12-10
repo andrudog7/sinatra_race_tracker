@@ -35,7 +35,7 @@ class RaceController < ApplicationController
                 if @race.save
                     current_user.races << @race 
                     current_user.save
-                    redirect to "/races/#{@race.slug}/show"
+                    redirect to "/races/#{@race.slug}/#{@race.id}/show"
                 else 
                     redirect to '/race/new'
                 end
@@ -55,9 +55,9 @@ class RaceController < ApplicationController
         end
       end
 
-    get '/races/:slug/show' do 
+    get '/races/:slug/:id/show' do 
         if logged_in?
-            @race = Race.find_by_slug(params[:slug])
+            @race = Race.find_by_id(params[:id])
             erb :'races/show_race'
         else
             redirect to '/login'
@@ -77,17 +77,17 @@ class RaceController < ApplicationController
         end
     end
 
-    patch '/races/:slug' do 
+    patch '/races/:slug/:id' do 
         if logged_in?
             if params[:name] == ""
-                redirect to "/races/#{params[:id]}/edit"
+                redirect to "/races/#{params[:slug]}/#{params[:id]}/edit"
             else
                 @race = Race.find_by_slug(params[:slug])
                 if @race && @race.user == current_user
                     if @race.update(name: params[:name], location: params[:location], distance: params[:distance], finish_time: params[:finish_time], pace: params[:pace], date: params[:date])
-                        redirect to "/races/#{@race.slug}/show"
+                        redirect to "/races/#{@race.slug}/#{@race.id}/show"
                     else
-                        redirect to "/races/#{params[:slug]}/edit"
+                        redirect to "/races/#{params[:slug]}/#{params[:id]}/edit"
                     end
                 end
             end

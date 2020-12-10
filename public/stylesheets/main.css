@@ -247,7 +247,7 @@
 #home-stats {
   background-color: #ebebeb;
   height: 40px;
-  border: 5px solid #8dcaff;
+  border: 5px solid #ff9e0e;
   margin-left: auto;
   margin-right: auto;
   width: 89.7%;
@@ -260,7 +260,7 @@
 }
 #tenk {
   width: 156px;
-  height: 250px;
+  height: 260px;
   float: left;
   background-color: #ebebeb;
   border: 5px solid #ff9e0e;
@@ -270,7 +270,7 @@
 
 #fivek {
   width: 156px;
-  height: 250px;
+  height: 260px;
   float: left;
   background-color: #ebebeb;
   border: 5px solid #ff9e0e;
@@ -280,7 +280,7 @@
 
 #Marathon {
   width: 160px;
-  height: 250px;
+  height: 260px;
   float: left;
   background-color: #ebebeb;
   border: 5px solid #ff9e0e;
@@ -290,11 +290,75 @@
 
 #Half-Marathon {
   width: 160px;
-  height: 250px;
+  height: 260px;
   float: left;
   background-color: #ebebeb;
   border: 5px solid #ff9e0e;
   padding: 25px;
   font-size: 15px;
+}
+
+/* --- New/Edit Page Styles --- */
+label {
+  width: 170px;
+  display: inline-block;
+  padding: 3px;
+}
+
+.new {
+background-color: #8dcaff;
+color: black;
+padding: 10px 15px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 100%;
+}
+
+.delete {
+  background-color: #ff9e0e;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 100%;
+  }
+/* --- Dashboard Page Styles --- */
+
+  .dashboard a, .new-race-button a {
+    text-decoration: none;
+  }
+  
+.dashboard {
+  text-align: center;
+  font-size: 125%;
+}
+
+.dashboard a:link, .dashboard a:visited {
+  background-color: #8dcaff;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.dashboard a:hover, .dashboard a:active, .new-race-button a:hover, .new-race-button a:active {
+  background-color: rgb(243, 120, 4);
+}
+
+.new-race-button a:link, .new-race-button a:visited {
+  background-color: #8dcaff;
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.new-race-button {
+  font-size: 110%;
 }
 

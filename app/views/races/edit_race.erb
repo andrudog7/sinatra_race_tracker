@@ -1,24 +1,29 @@
 <h1>Edit your race below:</h1>
-<form action ="/races/<%=@race.slug%>" method="POST">
+<form action ="/races/<%=@race.slug%>/<%=@race.id%>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-    Name of Race: <input type = "text" name="name" value="<%=@race.name%>"><br>
+    <label for ="name">Name of Race:</label>
+        <input type = "text" name="name" value="<%=@race.name%>"><br>
     <label for="distance">Distance:</label>
-    <select name="distance" id="distance">
-        <%Race.all.select(:distance).uniq.each do |race|%>
-            <%if @race.distance == race.distance%>
-                <option value="<%=race.distance%>" selected><%=@race.distance%></option>
-            <%else%>
-                <option value="<%=race.distance%>"><%=race.distance%></option>
+        <select name="distance" id="distance">
+            <%Race.all.select(:distance).uniq.each do |race|%>
+                <%if @race.distance == race.distance%>
+                    <option value="<%=race.distance%>" selected><%=@race.distance%></option>
+                <%else%>
+                    <option value="<%=race.distance%>"><%=race.distance%></option>
+                <%end%>
             <%end%>
-        <%end%>
-    </select><br>
-    Date: <input type="date" name="date" value="<%=@race.date%>">
-    Location: <input type = "text" name="location" value="<%=@race.location%>"><br>
-    Finish time: <input type-"text" name ="finish_time" value="<%=@race.finish_time%>"><br>
-    Pace (per mile): <input type-"text" name ="pace" value="<%=@race.pace%>"><br>
-    <input class="new" type="submit" value="Update Race">
+        </select><br>
+    <label for="date">Date:</label>
+        <input type="date" name="date" value="<%=@race.date%>"><br>
+    <label for="location">Location:</label>
+        <input type = "text" name="location" value="<%=@race.location%>"><br>
+    <label for="finish_time">Finish time (hh:mm:ss):</label>
+        <input type="text" pattern="\d{2}:[012345][0-9]:[012345][0-9]" name ="finish_time" value="<%=@race.finish_time%>"><br>
+    <label for="pace">Pace per mile(mm:ss):</label>
+        <input type="text" pattern="[012345][0-9]:[012345][0-9]" name ="pace" value="<%=@race.pace%>"><br><br>
+    <input class="new" type="submit" value="Update Race"><br><br>
     </form>
-    <form onsubmit="confirm('Are you sure you want to delete the following note?')" action ="/races/<%=@race.id%>/delete" method="POST">
+    <form action ="/races/<%=@race.id%>/delete" method="POST">
         <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
+        <input class="delete" type="submit" value="Delete Race">
     </form>
