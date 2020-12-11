@@ -4,7 +4,6 @@ class RaceController < ApplicationController
         if !logged_in?
             redirect to '/'
         else
-            current_user
             erb :'users/homepage'
         end
     end
@@ -13,7 +12,6 @@ class RaceController < ApplicationController
         if !logged_in?
             redirect to '/'
         else
-            current_user
             erb :'users/all_races'
         end
     end
@@ -47,8 +45,7 @@ class RaceController < ApplicationController
 
     get '/races/:distance' do 
         if logged_in?
-            distance = params[:distance]
-            @distance = distance.gsub("_", "-")
+            @distance = params[:distance].gsub("_", "-")
             erb :"/users/distance_layouts"
         else
             redirect to '/login'

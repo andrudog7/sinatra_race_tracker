@@ -29,8 +29,7 @@ class UserController < ApplicationController
     if !logged_in?
         erb :'users/login'
     else
-        @user = current_user
-        redirect to "/users/#{@user.slug}"
+        erb :'users/homepage'
     end
   end
 
@@ -44,8 +43,7 @@ class UserController < ApplicationController
         end
   end
 
-  get "/users/:slug" do 
-    @user = User.find_by_slug(params[:slug])
+  get "/users/:slug" do
     erb :'users/homepage'
   end
 
