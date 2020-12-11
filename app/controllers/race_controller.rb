@@ -55,7 +55,7 @@ class RaceController < ApplicationController
     get '/races/:slug/:id/show' do 
         if logged_in?
             @race = Race.find_by_id(params[:id])
-            erb :'races/show_race'
+            erb :'/races/show_race'
         else
             redirect to '/login'
         end
@@ -79,7 +79,7 @@ class RaceController < ApplicationController
             if params[:name] == ""
                 redirect to "/races/#{params[:slug]}/#{params[:id]}/edit"
             else
-                @race = Race.find_by_slug(params[:slug])
+                @race = Race.find_by_id(params[:id])
                 if @race && @race.user == current_user
                     if @race.update(name: params[:name], location: params[:location], distance: params[:distance], finish_time: params[:finish_time], pace: params[:pace], date: params[:date])
                         redirect to "/races/#{@race.slug}/#{@race.id}/show"
