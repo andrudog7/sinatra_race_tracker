@@ -15,15 +15,10 @@
   </head>
   <body>
     <div class="wrapper">
-    <div><img src="/images/racetracker.png" width="110" height="70" alt="Race Tracker Logo" style="float:left;"></div>
+    <div><img src="/images/racetracker.png" width="115" height="80" alt="Race Tracker Logo" style="float:left; padding: 5px"></div><br><br><br>
       <%if logged_in?%>
       <div class="profile-dropdown">
-          <button class="dropbtn">My Profile</button>
-          <div class="profile-dropdown-content">
-            <a href='/users/<%=current_user.slug%>'>My Dashboard</a>
-            
-            <a href="/logout">Logout</a>
-          </div>
+          <button class="dropbtn"><a href='/users/<%=current_user.slug%>'>My Dashboard</a></button>
       </div>
       <div class="new-button">
         <div class="profile-dropdown">
@@ -37,9 +32,14 @@
             </div>
         </div>
       </div>
+      <div class="profile-dropdown">
       <input class="dropbtn" type="submit" onclick="window.print();return false;" value="Print">
+      </div>
+      <div class="profile-dropdown">
+          <button class="dropbtn"><a href="/logout">Logout</a></a></button>
+      </div>
       <%end%>
-<br><br><br><br>
+<br><br><br>
 
         <%= yield %>
 

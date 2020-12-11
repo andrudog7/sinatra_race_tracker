@@ -6,33 +6,27 @@ This app provides runners everywhere a centralized location to store all of thei
 
 ## Installation
 
-Run the program locally on your CLI by following these steps:
+Run the program locally by following these steps:
 #1. Clone the repo from https://github.com/andrudog7/current_broadway_shows
 #2. In the terminal, navigate to the folder where you saved the clone
 #3. Make sure Ruby is installed on your computer
 #4. Run bundle install to install the program's gems
-#5. To start the program type 'shotgun' in the terminal to start up the local server
-#6. Copy the http address into your browser to start the application
+#5. Run rake db:migrate
+#6. To start the program type 'shotgun' in the terminal to start up the local server
+#7. Copy the http address into your browser to start the application
 
-OR 
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'Current_Broadway_Shows'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install Current_Broadway_Shows
 
 ## Usage
 
-To execute this application, run shotgun in your terminal and follow the prompt to the localhost page where you can sign up or login.
+Once logged in, create new Race instances to save to your account.
+
+## Support
+
+## Authors and Acknowledgement
+
+Author - Andrew Smoker
+
+Contact waverider826@yahoo.com for support.  
 
 ## Development
 
