@@ -8,7 +8,7 @@ This app provides runners everywhere a centralized location to store all of thei
 
 Run the program locally by following these steps:
 #1. Clone the repo from https://github.com/andrudog7/sinatra_race_tracker
-#2. In the terminal, navigate to the folder where you saved the clone
+#2. In the terminal, navigate to the folder where you saved the repo
 #3. Make sure Ruby is installed on your computer
 #4. Run bundle install to install the program's gems
 #5. Run rake db:migrate
@@ -22,11 +22,11 @@ Once logged in, create new Race instances to save to your account.
 
 ## Support
 
+Contact Andrew at waverider826@yahoo.com for support.  
+
 ## Authors and Acknowledgement
 
 Author - Andrew Smoker
-
-Contact waverider826@yahoo.com for support.  
 
 ## Development
 
