@@ -4,6 +4,10 @@ Welcome to the RaceTracker Sinatra application!
 
 This app provides runners everywhere a centralized location to store all of their racing statistics!  It allows users to sign up for a RaceTracker account.  From there, they can create races that contain all of their official stats (i.e. finish time, pace, date, distance, etc.).  Users can view a snapshot of their racing history in their profile dashboard or view races by distances to compare all of their finish times.  Users can edit, update and delete their race information as well.
 
+Demo Video: https://www.youtube.com/watch?v=l026i004WTk&t=33s
+
+Blog Post: https://andrewksmoker.medium.com/running-into-style-no-choice-but-to-push-forward-8fc9dde80cf
+
 ## Installation
 
 Run the program locally by following these steps:

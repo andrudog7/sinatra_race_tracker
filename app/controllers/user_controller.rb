@@ -8,6 +8,11 @@ class UserController < ApplicationController
     end
   end
 
+  get '/users' do 
+    @users = User.all
+    erb :'/users/users'
+  end
+
   post '/signup' do 
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect to '/signup'

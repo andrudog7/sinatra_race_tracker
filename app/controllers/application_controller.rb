@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, 'rt_secret'
-    set :views, Proc.new { File.join(root, "../views/") }
+    # set :views, Proc.new { File.join(root, "../views/") }
   end
 
   get "/" do
